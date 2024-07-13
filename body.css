@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #4CAF50;
+    padding: 1em;
+    text-align: center;
+}
+
+nav button {
+    background-color: white;
+    border: none;
+    padding: 1em;
+    margin: 0.5em;
+    cursor: pointer;
+}
+
+.page {
+    display: none;
+    padding: 2em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 1em;
+    text-align: left;
+}
+
+form label, form input {
+    display: block;
+    margin: 0.5em 0;
+}

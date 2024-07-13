@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Data Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <nav>
+        <button onclick="showPage('overview')">Overview</button>
+        <button onclick="showPage('entry')">Add Entry</button>
+        <button onclick="showPage('summary')">Summary</button>
+        <button onclick="showPage('expected')">Set Expected</button>
+        <button onclick="showPage('motivational')">Motivational</button>
+    </nav>
+    
+    <div id="overview" class="page">
+        <h1>Overview</h1>
+        <table id="overviewTable">
+            <thead>
+                <tr>
+                    <th>College Fee</th>
+                    <th>Living Expenses</th>
+                    <th>Bank Loan</th>
+                    <th>Family</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="entry" class="page">
+        <h1>Add Entry</h1>
+        <form id="entryForm" onsubmit="addEntry(event)">
+            <label for="collegeFee">College Fee:</label>
+            <input type="number" id="collegeFee" name="collegeFee" required>
+            
+            <label for="livingExpenses">Living Expenses:</label>
+            <input type="number" id="livingExpenses" name="livingExpenses" required>
+            
+            <label for="bankLoan">Bank Loan:</label>
+            <input type="number" id="bankLoan" name="bankLoan" required>
+            
+            <label for="family">Family:</label>
+            <input type="number" id="family" name="family" required>
+            
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <div id="summary" class="page">
+        <h1>Summary</h1>
+        <table id="summaryTable">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Spent</th>
+                    <th>Expected</th>
+                    <th>Remaining</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="expected" class="page">
+        <h1>Set Expected Spending</h1>
+        <form id="expectedForm" onsubmit="setExpected(event)">
+            <label for="expectedCollegeFee">Expected College Fee:</label>
+            <input type="number" id="expectedCollegeFee" name="expectedCollegeFee" required>
+            
+            <label for="expectedLivingExpenses">Expected Living Expenses:</label>
+            <input type="number" id="expectedLivingExpenses" name="expectedLivingExpenses" required>
+            
+            <label for="expectedBankLoan">Expected Bank Loan:</label>
+            <input type="number" id="expectedBankLoan" name="expectedBankLoan" required>
+            
+            <label for="expectedFamily">Expected Family:</label>
+            <input type="number" id="expectedFamily" name="expectedFamily" required>
+            
+            <button type="submit">Set</button>
+        </form>
+    </div>
+
+    <div id="motivational" class="page">
+        <h1>Motivational</h1>
+        <p id="finalCalculation" class="bold"></p>
+        <div class="motivational-message">
+            <p>I will have a great aim in life = (Placement and Govt Officer == Great Person)</p>
+            <p>I will continuously acquire the knowledge = (By excellence in academics and skills)</p>
+            <p>I will do hard work hard work hard work = (By achieving daily goal and not achieved no sleep)</p>
+            <p>I will have perseverance = (If one day or result goes wrong, continue to do hard work because time will change)</p>
+            <p>I will always remain happy and make no one sad = (Love my family and future family)</p>
+            <p>Plan your day 1 day before = (Make realistic goals according to aim with future watch)</p>
+            <p>Yoga and exercise daily = (Remain healthy because health is wealth)</p>
+            <p>Accomplish your daily goal unless no sleep = (Daily means that day only, no procrastination)</p>
+            <p>Every day and moment is new so restart = (If one day or 1 hour gone wrong, no problem restart)</p>
+            <p>Be happy and make no one sad and love your present family and future family = (Respect elders and respect money, use wisely 100 times)</p>
+            <h2>See your family (Tai, Tau, Bro, Didi, Mother, and Father), they are suffering financially but saying nothing because they have hope for you. Think about your future family, your child, and wife. Will you survive them lesser than your father or more than your father? Please be hardworking because hard work done today will make your future heaven.</h2>
+        </div>
+    </div>
+</body>
+</html>
