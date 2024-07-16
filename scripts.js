@@ -1,5 +1,5 @@
-let data = [];
-let expected = {
+let data = JSON.parse(localStorage.getItem('data')) || [];
+let expected = JSON.parse(localStorage.getItem('expected')) || {
     collegeFee: 0,
     livingExpenses: 0,
     bankLoan: 0,
@@ -28,6 +28,7 @@ function addEntry(event) {
     };
     entry.total = (entry.collegeFee + entry.livingExpenses) - (entry.bankLoan + entry.family);
     data.push(entry);
+    localStorage.setItem('data', JSON.stringify(data));
     document.getElementById('entryForm').reset();
     showPage('overview');
 }
@@ -96,6 +97,7 @@ function setExpected(event) {
     expected.livingExpenses = parseFloat(document.getElementById('expectedLivingExpenses').value);
     expected.bankLoan = parseFloat(document.getElementById('expectedBankLoan').value);
     expected.family = parseFloat(document.getElementById('expectedFamily').value);
+    localStorage.setItem('expected', JSON.stringify(expected));
     document.getElementById('expectedForm').reset();
     showPage('summary');
 }
@@ -110,7 +112,24 @@ function renderMotivational() {
     }, { collegeFee: 0, livingExpenses: 0, bankLoan: 0, family: 0 });
 
     const finalCalculation = (totals.collegeFee + totals.livingExpenses) - (totals.bankLoan + totals.family);
-    document.getElementById('finalCalculation').innerText = `Final Calculation: (${totals.collegeFee} + ${totals.livingExpenses}) - (${totals.bankLoan} + ${totals.family}) = ${finalCalculation}`;
+    document.getElementById('finalCalculation').innerText = `Final Calculation: (${totals.collegeFee} + ${totals.livingExpenses}) - (${totals.bankLoan} + totals.family}) = ${finalCalculation}`;
+}
+
+function editEntry(index) {
+    const entry = data[index];
+    document.getElementById('collegeFee').value = entry.collegeFee;
+    document.getElementById('livingExpenses').value = entry.livingExpenses;
+    document.getElementById('bankLoan').value = entry.bankLoan;
+    document.getElementById('family').value = entry.family;
+    data.splice(index, 1);
+    localStorage.setItem('data', JSON.stringify(data));
+    showPage('entry');
+}
+
+function deleteEntry(index) {
+    data.splice(index, 1);
+    localStorage.setItem('data', JSON.stringify(data));
+    renderOverview();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
